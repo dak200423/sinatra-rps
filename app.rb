@@ -3,9 +3,9 @@ require "sinatra/reloader"
 
 get("/") do
   "
-  <h1>Welcome to your Sinatra App!</h1>
-  <p>Define some routes in app.rb</p>
+  <h1>Welcome to Rock-Paper-Scissors!</h1>
   "
+erb(:homepage)
 end
 
 get ("/rock") do
@@ -28,57 +28,33 @@ end
 get ("/paper") do
   moves = ["rock", "paper", "scissors"]
   
-  comp_move = moves.sample
+  @comp_move = moves.sample
   
-  if comp_move == "rock"
-    outcome = "won"
-  elsif comp_move == "paper"
-    outcome = "tied"
+  if @comp_move == "rock"
+    @outcome = "won"
+  elsif @comp_move == "paper"
+    @outcome = "tied"
   else
-    outcome = "lost"
+    @outcome = "lost"
   end
   
-  "
-  <h2>
-    We played paper!
-  </h2>
-  
-  <h2>
-    They played #{comp_move}!
-  </h2>
-  
-  <h2>
-    We #{outcome}!
-  </h2>
-  "
+  erb(:lion)
 end
   
 
 get ("/scissors") do
   moves = ["rock", "paper", "scissors"]
   
-  comp_move = moves.sample
+  @comp_move = moves.sample
   
-  if comp_move == "rock"
+  if @comp_move == "rock"
     outcome = "lost"
-  elsif comp_move == "paper"
-    outcome = "won"
+  elsif @comp_move == "paper"
+    @outcome = "won"
   else
-    outcome = "tied"
+    @outcome = "tied"
   end
   
-  "
-  <h2>
-    We played scissors!
-  </h2>
-  
-  <h2>
-    They played #{comp_move}!
-  </h2>
-  
-  <h2>
-    We #{outcome}!
-  </h2>
-  "
+  erb(:penguin)
 end
     
