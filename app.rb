@@ -48,7 +48,7 @@ get ("/scissors") do
   @comp_move = moves.sample
   
   if @comp_move == "rock"
-    outcome = "lost"
+    @outcome = "lost"
   elsif @comp_move == "paper"
     @outcome = "won"
   else
